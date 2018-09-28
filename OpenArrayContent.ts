@@ -1,14 +1,14 @@
-import { arraysMatch } from 'intuitive-array-handlers/no_modify/return_boolean/arraysMatch';
-import { getFirstIndexOf } from 'intuitive-array-handlers/no_modify/get/indexes/getFirstIndexOf';
 import { isEmpty, notEmpty } from 'basic-data-handling/isEmpty_notEmpty';
-import { arrayEndsWith } from 'intuitive-array-handlers/no_modify/return_boolean/arrayEndsWith';
-import { arrayHas } from 'intuitive-array-handlers/no_modify/return_boolean/arrayHas';
-import { arrayHasAll } from 'intuitive-array-handlers/no_modify/return_boolean/arrayHasAll';
-import { arrayHasAny } from 'intuitive-array-handlers/no_modify/return_boolean/arrayHasAny';
-import { arrayStartsWith } from 'intuitive-array-handlers/no_modify/return_boolean/arrayStartsWith';
-import { getLastIndexOf } from 'intuitive-array-handlers/no_modify/get/indexes/getLastIndexOf';
-import { getIndexesOf } from 'intuitive-array-handlers/no_modify/get/indexes/getIndexesOf';
-import { OpenArrayContainer } from './OpenArrayContainer';
+import { arraysMatch } from '@writetome51/arrays-match/arraysMatch';
+import { getFirstIndexOf } from '@writetome51/array-get-indexes-basic/getFirstIndexOf';
+import { getLastIndexOf } from '@writetome51/array-get-indexes-intermediate/getLastIndexOf';
+import { getIndexesOf } from '@writetome51/array-get-indexes-intermediate/getIndexesOf';
+import { arrayHas } from '@writetome51/array-analysis-basic/arrayHas';
+import { arrayHasAll } from '@writetome51/array-analysis-basic/arrayHasAll';
+import { arrayHasAny } from '@writetome51/array-analysis-basic/arrayHasAny';
+import { arrayStartsWith } from '@writetome51/array-analysis-intermediate/arrayStartsWith';
+import { arrayEndsWith } from '@writetome51/array-analysis-intermediate/arrayEndsWith';
+import { OpenArrayContainer } from '@writetome51/open-array-container/OpenArrayContainer';
 
 
 export class OpenArrayContent extends OpenArrayContainer {

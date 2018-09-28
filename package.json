@@ -6,7 +6,6 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
- 
   "keywords": [
     "array",
     "manipulation",
@@ -15,7 +14,6 @@
   ],
   "author": "Steve Thompson",
   "license": "MIT",
- 
   "dependencies": {
     "basic-data-handling": "latest",
     "@writetome51/open-array-container": "latest",
@@ -24,5 +22,5 @@
     "@writetome51/array-analysis-basic": "latest",
     "@writetome51/array-analysis-intermediate": "latest",
     "@writetome51/arrays-match": "latest"
-    }
+  }
 }

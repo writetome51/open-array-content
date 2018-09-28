@@ -13,17 +13,17 @@ var __extends = (this && this.__extends) || (function () {
     };
 })();
 Object.defineProperty(exports, "__esModule", { value: true });
-var arraysMatch_1 = require("intuitive-array-handlers/no_modify/return_boolean/arraysMatch");
-var getFirstIndexOf_1 = require("intuitive-array-handlers/no_modify/get/indexes/getFirstIndexOf");
 var isEmpty_notEmpty_1 = require("basic-data-handling/isEmpty_notEmpty");
-var arrayEndsWith_1 = require("intuitive-array-handlers/no_modify/return_boolean/arrayEndsWith");
-var arrayHas_1 = require("intuitive-array-handlers/no_modify/return_boolean/arrayHas");
-var arrayHasAll_1 = require("intuitive-array-handlers/no_modify/return_boolean/arrayHasAll");
-var arrayHasAny_1 = require("intuitive-array-handlers/no_modify/return_boolean/arrayHasAny");
-var arrayStartsWith_1 = require("intuitive-array-handlers/no_modify/return_boolean/arrayStartsWith");
-var getLastIndexOf_1 = require("intuitive-array-handlers/no_modify/get/indexes/getLastIndexOf");
-var getIndexesOf_1 = require("intuitive-array-handlers/no_modify/get/indexes/getIndexesOf");
-var OpenArrayContainer_1 = require("./OpenArrayContainer");
+var arraysMatch_1 = require("@writetome51/arrays-match/arraysMatch");
+var getFirstIndexOf_1 = require("@writetome51/array-get-indexes-basic/getFirstIndexOf");
+var getLastIndexOf_1 = require("@writetome51/array-get-indexes-intermediate/getLastIndexOf");
+var getIndexesOf_1 = require("@writetome51/array-get-indexes-intermediate/getIndexesOf");
+var arrayHas_1 = require("@writetome51/array-analysis-basic/arrayHas");
+var arrayHasAll_1 = require("@writetome51/array-analysis-basic/arrayHasAll");
+var arrayHasAny_1 = require("@writetome51/array-analysis-basic/arrayHasAny");
+var arrayStartsWith_1 = require("@writetome51/array-analysis-intermediate/arrayStartsWith");
+var arrayEndsWith_1 = require("@writetome51/array-analysis-intermediate/arrayEndsWith");
+var OpenArrayContainer_1 = require("@writetome51/open-array-container/OpenArrayContainer");
 var OpenArrayContent = /** @class */ (function (_super) {
     __extends(OpenArrayContent, _super);
     function OpenArrayContent(data) {
