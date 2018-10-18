@@ -1,10 +1,14 @@
 {
   "name": "@writetome51/open-array-content",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "an array-manipulating typescript/javascript class with properties and methods that give info about what is in the array",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/writetome51/open-array-content.git"
   },
   "keywords": [
     "array",
@@ -14,6 +18,10 @@
   ],
   "author": "Steve Thompson",
   "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/writetome51/open-array-content/issues"
+  },
+  "homepage": "https://github.com/writetome51/open-array-content#readme",
   "dependencies": {
     "basic-data-handling": "latest",
     "@writetome51/arrays-match": "latest",
