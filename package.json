@@ -1,8 +1,8 @@
 {
   "name": "@writetome51/open-array-content",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "an array-manipulating typescript/javascript class with properties and methods that give info about what is in the array",
-  "main": "",
+  "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -16,11 +16,11 @@
   "license": "MIT",
   "dependencies": {
     "basic-data-handling": "latest",
+    "@writetome51/arrays-match": "latest",
     "@writetome51/open-array-container": "latest",
     "@writetome51/array-get-indexes-basic": "latest",
     "@writetome51/array-get-indexes-intermediate": "latest",
-    "@writetome51/array-analysis-basic": "latest",
-    "@writetome51/array-analysis-intermediate": "latest",
-    "@writetome51/arrays-match": "latest"
+    "@writetome51/array-has": "latest",
+    "@writetome51/array-starts-with-ends-with": "latest"
   }
 }

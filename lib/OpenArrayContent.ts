@@ -3,11 +3,13 @@ import { arraysMatch } from '@writetome51/arrays-match/arraysMatch';
 import { getFirstIndexOf } from '@writetome51/array-get-indexes-basic/getFirstIndexOf';
 import { getLastIndexOf } from '@writetome51/array-get-indexes-intermediate/getLastIndexOf';
 import { getIndexesOf } from '@writetome51/array-get-indexes-intermediate/getIndexesOf';
-import { arrayHas } from '@writetome51/array-analysis-basic/arrayHas';
-import { arrayHasAll } from '@writetome51/array-analysis-basic/arrayHasAll';
-import { arrayHasAny } from '@writetome51/array-analysis-basic/arrayHasAny';
-import { arrayStartsWith } from '@writetome51/array-analysis-intermediate/arrayStartsWith';
-import { arrayEndsWith } from '@writetome51/array-analysis-intermediate/arrayEndsWith';
+import { getIndexesThatPass } from '@writetome51/array-get-indexes-intermediate/getIndexesThatPass';
+import { arrayHas } from '@writetome51/array-has/arrayHas';
+import { arrayHasAll } from '@writetome51/array-has/arrayHasAll';
+import { arrayHasAny } from '@writetome51/array-has/arrayHasAny';
+import { arrayHasAdjacent } from '@writetome51/array-has/arrayHasAdjacent';
+import { arrayStartsWith } from '@writetome51/array-starts-with-ends-with/arrayStartsWith';
+import { arrayEndsWith } from '@writetome51/array-starts-with-ends-with/arrayEndsWith';
 import { OpenArrayContainer } from '@writetome51/open-array-container/OpenArrayContainer';
 
 
@@ -24,6 +26,11 @@ export class OpenArrayContent extends OpenArrayContainer {
 	}
 
 
+	set length(value) {
+		this.data.length = value;
+	}
+
+
 	get isEmpty(): boolean {
 		return isEmpty(this.data);
 	}
@@ -31,6 +38,12 @@ export class OpenArrayContent extends OpenArrayContainer {
 
 	get notEmpty(): boolean {
 		return notEmpty(this.data);
+	}
+
+
+	// Does same thing as Array.join()
+	asString(glue = ', ') {
+		return this.data.join(glue);
 	}
 
 
@@ -51,6 +64,12 @@ export class OpenArrayContent extends OpenArrayContainer {
 	}
 
 
+	// returns false if values contains object.
+	hasAdjacent(values: any[]): boolean {
+		return arrayHasAdjacent(values, this.data);
+	}
+
+
 	startsWith(values: any[]): boolean {
 		return arrayStartsWith(values, this.data);
 	}
@@ -67,7 +86,7 @@ export class OpenArrayContent extends OpenArrayContainer {
 	}
 
 
-	// For the next two methods:
+	// For the next 3 methods:
 	// testFunction is a callback with same signature as callback passed to
 	// array.filter().
 	// testFunction(value) checks if value passes test. If yes, it returns true.
@@ -80,6 +99,12 @@ export class OpenArrayContent extends OpenArrayContainer {
 	// returns true if only 1 value passes.
 	anyPass(testFunction): boolean {
 		return this.data.some(testFunction);
+	}
+
+
+	// returns all indexes of items that pass test.
+	indexesThatPass(testFunction): number[] {
+		return getIndexesThatPass(testFunction, this.data);
 	}
 
 
