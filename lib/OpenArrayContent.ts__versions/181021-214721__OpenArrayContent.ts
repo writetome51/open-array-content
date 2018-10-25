@@ -1,5 +1,5 @@
 import { isEmpty, notEmpty } from 'basic-data-handling/isEmpty_notEmpty';
-import { arraysMatch } from '@writetome51/arrays-match/arraysMatch';
+import { arraysMatch } from '@writetome51/arrays-match';
 import { getFirstIndexOf } from '@writetome51/array-get-indexes-basic/getFirstIndexOf';
 import { getLastIndexOf } from '@writetome51/array-get-indexes-intermediate/getLastIndexOf';
 import { getIndexesOf } from '@writetome51/array-get-indexes-intermediate/getIndexesOf';

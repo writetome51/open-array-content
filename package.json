@@ -1,14 +1,14 @@
 {
-  "name": "@writetome51/open-array-content",
-  "version": "1.0.2",
+  "name": "@writetome51/public-array-content",
+  "version": "1.0.0",
   "description": "an array-manipulating typescript/javascript class with properties and methods that give info about what is in the array",
-  "main": "index.js",
+  "main": "",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/writetome51/open-array-content.git"
+    "url": "git+https://github.com/writetome51/public-array-content.git"
   },
   "keywords": [
     "array",
@@ -19,13 +19,13 @@
   "author": "Steve Thompson",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/writetome51/open-array-content/issues"
+    "url": "https://github.com/writetome51/public-array-content/issues"
   },
-  "homepage": "https://github.com/writetome51/open-array-content#readme",
+  "homepage": "https://github.com/writetome51/public-array-content#readme",
   "dependencies": {
     "basic-data-handling": "latest",
     "@writetome51/arrays-match": "latest",
-    "@writetome51/open-array-container": "latest",
+    "@writetome51/public-array-container": "latest",
     "@writetome51/array-get-indexes-basic": "latest",
     "@writetome51/array-get-indexes-intermediate": "latest",
     "@writetome51/array-has": "latest",

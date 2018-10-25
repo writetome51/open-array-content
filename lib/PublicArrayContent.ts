@@ -1,20 +1,23 @@
-The PublicArrayContent class is a dependency of the PublicArray class  ( package:  @writetome51/public-array ).
-
-PublicArrayContent has many of the basic properties and methods you need to understand the array's
-contents, and they are all listed further below.
-
-To instantiate, pass the actual array it will contain to its constructor:
-
-let content = new PublicArrayContent( [item1, item2, item3,...] );
-
-You can reset the array by accessing the class 'data' property:
-
-content.data = [1,2,3,4,...];
-
-Here are all properties and methods defined in the class:
+import { isEmpty, notEmpty } from 'basic-data-handling/isEmpty_notEmpty';
+import { arraysMatch } from '@writetome51/arrays-match';
+import { getFirstIndexOf } from '@writetome51/array-get-indexes-basic';
+import { getLastIndexOf, getIndexesOf, getIndexesThatPass }
+	from '@writetome51/array-get-indexes-intermediate';
+import { arrayHas, arrayHasAll, arrayHasAny, arrayHasAdjacent } from '@writetome51/array-has';
+import { arrayStartsWith } from '@writetome51/array-starts-with-ends-with/arrayStartsWith';
+import { arrayEndsWith } from '@writetome51/array-starts-with-ends-with/arrayEndsWith';
+import { PublicArrayContainer } from '@writetome51/public-array-container';
 
 
-    get length(): number {
+export class PublicArrayContent extends PublicArrayContainer {
+
+
+	constructor(data = []) {
+		super(data);
+	}
+
+
+	get length(): number {
 		return this.data.length;
 	}
 
@@ -117,3 +120,6 @@ Here are all properties and methods defined in the class:
 	indexesOf(value): number[] {
 		return getIndexesOf(value, this.data);
 	}
+
+
+}
