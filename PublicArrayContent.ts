@@ -1,19 +1,15 @@
 import { isEmpty, notEmpty } from 'basic-data-handling/isEmpty_notEmpty';
 import { arraysMatch } from '@writetome51/arrays-match';
-import { getFirstIndexOf } from '@writetome51/array-get-indexes-basic/getFirstIndexOf';
-import { getLastIndexOf } from '@writetome51/array-get-indexes-intermediate/getLastIndexOf';
-import { getIndexesOf } from '@writetome51/array-get-indexes-intermediate/getIndexesOf';
-import { getIndexesThatPass } from '@writetome51/array-get-indexes-intermediate/getIndexesThatPass';
-import { arrayHas } from '@writetome51/array-has/arrayHas';
-import { arrayHasAll } from '@writetome51/array-has/arrayHasAll';
-import { arrayHasAny } from '@writetome51/array-has/arrayHasAny';
-import { arrayHasAdjacent } from '@writetome51/array-has/arrayHasAdjacent';
+import { getFirstIndexOf } from '@writetome51/array-get-indexes-basic';
+import { getLastIndexOf, getIndexesOf, getIndexesThatPass }
+	from '@writetome51/array-get-indexes-intermediate';
+import { arrayHas, arrayHasAll, arrayHasAny, arrayHasAdjacent } from '@writetome51/array-has';
 import { arrayStartsWith } from '@writetome51/array-starts-with-ends-with/arrayStartsWith';
 import { arrayEndsWith } from '@writetome51/array-starts-with-ends-with/arrayEndsWith';
-import { OpenArrayContainer } from '@writetome51/open-array-container/OpenArrayContainer';
+import { PublicArrayContainer } from '@writetome51/public-array-container/PublicArrayContainer';
 
 
-export class OpenArrayContent extends OpenArrayContainer {
+export class PublicArrayContent extends PublicArrayContainer {
 
 
 	constructor(data = []) {

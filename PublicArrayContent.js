@@ -20,7 +20,7 @@ var array_get_indexes_intermediate_1 = require("@writetome51/array-get-indexes-i
 var array_has_1 = require("@writetome51/array-has");
 var arrayStartsWith_1 = require("@writetome51/array-starts-with-ends-with/arrayStartsWith");
 var arrayEndsWith_1 = require("@writetome51/array-starts-with-ends-with/arrayEndsWith");
-var public_array_container_1 = require("@writetome51/public-array-container");
+var PublicArrayContainer_1 = require("@writetome51/public-array-container/PublicArrayContainer");
 var PublicArrayContent = /** @class */ (function (_super) {
     __extends(PublicArrayContent, _super);
     function PublicArrayContent(data) {
@@ -109,5 +109,5 @@ var PublicArrayContent = /** @class */ (function (_super) {
         return array_get_indexes_intermediate_1.getIndexesOf(value, this.data);
     };
     return PublicArrayContent;
-}(public_array_container_1.PublicArrayContainer));
+}(PublicArrayContainer_1.PublicArrayContainer));
 exports.PublicArrayContent = PublicArrayContent;

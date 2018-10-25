@@ -38,4 +38,3 @@ console.log(content.firstIndexOf(100)); // 8
 content.data = [1, 2, 3, 4, 66, 77, 88, 99, 100, 900, 300, 100];
 console.log(content.lastIndexOf(100)); // 11
 console.log(content.indexesOf(100)); // [8, 11]
-
