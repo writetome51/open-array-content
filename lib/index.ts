@@ -6,7 +6,7 @@ import { getLastIndexOf, getIndexesOf, getIndexesThatPass }
 import { arrayHas, arrayHasAll, arrayHasAny, arrayHasAdjacent } from '@writetome51/array-has';
 import { arrayStartsWith } from '@writetome51/array-starts-with-ends-with/arrayStartsWith';
 import { arrayEndsWith } from '@writetome51/array-starts-with-ends-with/arrayEndsWith';
-import { PublicArrayContainer } from '@writetome51/public-array-container/PublicArrayContainer';
+import { PublicArrayContainer } from '@writetome51/public-array-container';
 
 
 export class PublicArrayContent extends PublicArrayContainer {
@@ -44,7 +44,7 @@ export class PublicArrayContent extends PublicArrayContainer {
 
 
 	// returns false if value is object.
-	has(value): boolean {
+	has(value: any): boolean {
 		return arrayHas(value, this.data);
 	}
 
@@ -85,39 +85,41 @@ export class PublicArrayContent extends PublicArrayContainer {
 	// For the next 3 methods:
 	// testFunction is a callback with same signature as callback passed to
 	// array.filter().
-	// testFunction(value) checks if value passes test. If yes, it returns true.
+	// testFunction(item, index, theArray) checks if item passes test. If yes, it returns true.
 
-	allPass(testFunction): boolean {
-		return this.data.every(testFunction); // returns true if all items pass test.
+
+	// returns true if all items pass test.
+	allPass(testFunction: (item: any, index: number, array: any[]) => boolean): boolean {
+		return this.data.every(testFunction);
 	}
 
 
-	// returns true if only 1 value passes.
-	anyPass(testFunction): boolean {
+	// returns true if only 1 item passes.
+	anyPass(testFunction: (item: any, index: number, array: any[]) => boolean): boolean {
 		return this.data.some(testFunction);
 	}
 
 
 	// returns all indexes of items that pass test.
-	indexesThatPass(testFunction): number[] {
+	indexesThatPass(testFunction: (item: any, index: number, array: any[]) => boolean): number[] {
 		return getIndexesThatPass(testFunction, this.data);
 	}
 
 
 	// Does not work if value is object.
-	firstIndexOf(value): number {
+	firstIndexOf(value: any): number {
 		return getFirstIndexOf(value, this.data);
 	}
 
 
 	// Does not work if value is object.
-	lastIndexOf(value): number {
+	lastIndexOf(value: any): number {
 		return getLastIndexOf(value, this.data);
 	}
 
 
 	// Does not work if value is object.
-	indexesOf(value): number[] {
+	indexesOf(value: any): number[] {
 		return getIndexesOf(value, this.data);
 	}
 

@@ -1,4 +1,4 @@
-import { PublicArrayContent } from './PublicArrayContent';
+import { PublicArrayContent } from './index';
 
 
 let content = new PublicArrayContent(['the', 'long', 'sentence', 'of', 'words', 'is', 'right', 'here']);
