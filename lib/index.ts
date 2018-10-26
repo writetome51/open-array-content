@@ -1,4 +1,5 @@
 import { isEmpty, notEmpty } from 'basic-data-handling/isEmpty_notEmpty';
+import { errorIfNotFunction } from 'basic-data-handling/errorIfNotFunction';
 import { arraysMatch } from '@writetome51/arrays-match';
 import { getFirstIndexOf } from '@writetome51/array-get-indexes-basic';
 import { getLastIndexOf, getIndexesOf, getIndexesThatPass }
@@ -12,7 +13,7 @@ import { PublicArrayContainer } from '@writetome51/public-array-container';
 export class PublicArrayContent extends PublicArrayContainer {
 
 
-	constructor(data = []) {
+	constructor(data: any[] = []) {
 		super(data);
 	}
 
@@ -83,25 +84,26 @@ export class PublicArrayContent extends PublicArrayContainer {
 
 
 	// For the next 3 methods:
-	// testFunction is a callback with same signature as callback passed to
-	// array.filter().
-	// testFunction(item, index, theArray) checks if item passes test. If yes, it returns true.
 
+	// testFunction(currentItem, currentIndex, theArray) checks if item passes test.
+	// If yes, it returns true.
 
 	// returns true if all items pass test.
-	allPass(testFunction: (item: any, index: number, array: any[]) => boolean): boolean {
+	allPass(testFunction: (item: any, index?, array?) => boolean): boolean {
+		errorIfNotFunction(testFunction);
 		return this.data.every(testFunction);
 	}
 
 
 	// returns true if only 1 item passes.
-	anyPass(testFunction: (item: any, index: number, array: any[]) => boolean): boolean {
+	anyPass(testFunction: (item: any, index?, array?) => boolean): boolean {
+		errorIfNotFunction(testFunction);
 		return this.data.some(testFunction);
 	}
 
 
 	// returns all indexes of items that pass test.
-	indexesThatPass(testFunction: (item: any, index: number, array: any[]) => boolean): number[] {
+	indexesThatPass(testFunction: (item: any, index?, array?) => boolean): number[] {
 		return getIndexesThatPass(testFunction, this.data);
 	}
 
