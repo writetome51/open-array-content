@@ -93,17 +93,23 @@ if (arraysMatch(result, [5, 7])) console.log('test 20 passed');
 else console.log('test 20 FAILED');
 
 // Test 21:
-result = content.indexesThatPass((item) => {
-	return (item % 2 !== 0 && item > 10);
-});
-if (arraysMatch(result, [5, 7])) console.log('test 21 passed');
+result = content.indexesThatPass((item) => item > 1000);
+if (arraysMatch(result, [])) console.log('test 21 passed');
 else console.log('test 21 FAILED');
 
+// Test 22:
+if (content.firstIndexOf(100) === 8) console.log('test 22 passed');
+else console.log('test 22 FAILED');
 
-console.log(content.indexesThatPass((item) => item > 1000)); // []
-
-console.log(content.firstIndexOf(100)); // 8
 
 content.data = [1, 2, 3, 4, 66, 77, 88, 99, 100, 900, 300, 100];
-console.log(content.lastIndexOf(100)); // 11
-console.log(content.indexesOf(100)); // [8, 11]
+
+
+// Test 23:
+if (content.lastIndexOf(100) === 11) console.log('test 23 passed');
+else console.log('test 23 FAILED');
+
+// Test 24:
+result = content.indexesOf(100);
+if (arraysMatch(result, [8, 11])) console.log('test 24 passed');
+else console.log('test 24 FAILED');

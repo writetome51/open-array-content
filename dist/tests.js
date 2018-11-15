@@ -109,15 +109,25 @@ if (arrays_match_1.arraysMatch(result, [5, 7]))
 else
     console.log('test 20 FAILED');
 // Test 21:
-result = content.indexesThatPass(function (item) {
-    return (item % 2 !== 0 && item > 10);
-});
-if (arrays_match_1.arraysMatch(result, [5, 7]))
+result = content.indexesThatPass(function (item) { return item > 1000; });
+if (arrays_match_1.arraysMatch(result, []))
     console.log('test 21 passed');
 else
     console.log('test 21 FAILED');
-console.log(content.indexesThatPass(function (item) { return item > 1000; })); // []
-console.log(content.firstIndexOf(100)); // 8
+// Test 22:
+if (content.firstIndexOf(100) === 8)
+    console.log('test 22 passed');
+else
+    console.log('test 22 FAILED');
 content.data = [1, 2, 3, 4, 66, 77, 88, 99, 100, 900, 300, 100];
-console.log(content.lastIndexOf(100)); // 11
-console.log(content.indexesOf(100)); // [8, 11]
+// Test 23:
+if (content.lastIndexOf(100) === 11)
+    console.log('test 23 passed');
+else
+    console.log('test 23 FAILED');
+// Test 24:
+result = content.indexesOf(100);
+if (arrays_match_1.arraysMatch(result, [8, 11]))
+    console.log('test 24 passed');
+else
+    console.log('test 24 FAILED');

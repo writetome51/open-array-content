@@ -38,7 +38,7 @@ export class PublicArrayContent extends PublicArrayContainer {
 
 
 	// Does same thing as Array.join()
-	asString(glue = ', ') {
+	asString(glue = ', '): string {
 		return this.data.join(glue);
 	}
 
@@ -77,7 +77,7 @@ export class PublicArrayContent extends PublicArrayContainer {
 
 
 	// returns false if array contains object.
-	matches(array): boolean {
+	matches(array: any[]): boolean {
 		return arraysMatch(array, this.data);
 	}
 

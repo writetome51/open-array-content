@@ -2,8 +2,6 @@ To include in your project:
 
 import { PublicArrayContent } from '@writetome51/public-array-content';
 
-The PublicArrayContent class is a dependency of the PublicArray class  
-( package:  @writetome51/public-array ).
 
 PublicArrayContent has many of the basic properties and methods you need to   
 understand the array's contents, and they are all listed further below.
