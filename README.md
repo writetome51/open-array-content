@@ -2,10 +2,11 @@ To include in your project:
 
 import { PublicArrayContent } from '@writetome51/public-array-content';
 
-The PublicArrayContent class is a dependency of the PublicArray class  ( package:  @writetome51/public-array ).
+The PublicArrayContent class is a dependency of the PublicArray class  
+( package:  @writetome51/public-array ).
 
-PublicArrayContent has many of the basic properties and methods you need to understand the array's
-contents, and they are all listed further below.
+PublicArrayContent has many of the basic properties and methods you need to   
+understand the array's contents, and they are all listed further below.
 
 To instantiate, pass the actual array it will contain to its constructor:
 
@@ -16,19 +17,15 @@ You can reset the array by accessing the class 'data' property:
 content.data = [1,2,3,4,...];
 
 Here are all properties defined in the class:
+	
+    length : number (read-writable)
 
+	isEmpty : boolean (read-only)
 
-    length (read-writable): number
-
-
-	isEmpty (read-only): boolean
-
-
-	notEmpty (read-only): boolean
+	notEmpty : boolean (read-only)
 
 
 Here are all methods defined in the class:
-
 
 	// Does same thing as Array.join()
 	asString(glue = ', '): string
@@ -36,11 +33,11 @@ Here are all methods defined in the class:
 
 	// returns false if value is object.
 	has(value): boolean
-
+	
 
 	// returns false if values contains object.
 	hasAll(values: any[]): boolean
-
+	
 
 	hasAny(values: any[]): boolean
 
@@ -49,11 +46,11 @@ Here are all methods defined in the class:
 	hasAdjacent(values: any[]): boolean
 
 
-    // returns false if values contains object.
+  	// returns false if values contains object.
 	startsWith(values: any[]): boolean
 
 
-    // returns false if values contains object.
+ 	// returns false if values contains object.
 	endsWith(values: any[]): boolean
 
 
@@ -63,11 +60,11 @@ Here are all methods defined in the class:
 
 	// For the next 3 methods:
 	// testFunction is a callback with same signature as callback passed to
-	// Array.filter().
-	// testFunction(value, index, theArray) checks if value passes test. If yes, it returns true.
+	// Array.filter() :
+	// testFunction(value, index?, theArray?):  checks if value passes test. If yes, it returns true.
 
 
-    // returns true if all items pass test.
+  	// returns true if all items pass test.
 	allPass(testFunction): boolean
 
 

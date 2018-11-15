@@ -5,15 +5,14 @@ import { getFirstIndexOf } from '@writetome51/array-get-indexes-basic';
 import { getLastIndexOf, getIndexesOf, getIndexesThatPass }
 	from '@writetome51/array-get-indexes-intermediate';
 import { arrayHas, arrayHasAll, arrayHasAny, arrayHasAdjacent } from '@writetome51/array-has';
-import { arrayStartsWith } from '@writetome51/array-starts-with-ends-with/arrayStartsWith';
-import { arrayEndsWith } from '@writetome51/array-starts-with-ends-with/arrayEndsWith';
+import { arrayStartsWith, arrayEndsWith } from '@writetome51/array-starts-with-ends-with';
 import { PublicArrayContainer } from '@writetome51/public-array-container';
 
 
 export class PublicArrayContent extends PublicArrayContainer {
 
 
-	constructor(data: any[] = []) {
+	constructor(data = []) {
 		super(data);
 	}
 
@@ -85,7 +84,7 @@ export class PublicArrayContent extends PublicArrayContainer {
 
 	// For the next 3 methods:
 
-	// testFunction(currentItem, currentIndex, theArray) checks if item passes test.
+	// testFunction(item, index?, array?) checks if item passes test.
 	// If yes, it returns true.
 
 	// returns true if all items pass test.
@@ -95,14 +94,13 @@ export class PublicArrayContent extends PublicArrayContainer {
 	}
 
 
-	// returns true if only 1 item passes.
+	// returns true if at least 1 item passes.
 	anyPass(testFunction: (item: any, index?, array?) => boolean): boolean {
 		errorIfNotFunction(testFunction);
 		return this.data.some(testFunction);
 	}
 
 
-	// returns all indexes of items that pass test.
 	indexesThatPass(testFunction: (item: any, index?, array?) => boolean): number[] {
 		return getIndexesThatPass(testFunction, this.data);
 	}
