@@ -31,7 +31,7 @@ export declare class PublicArrayContent extends PublicArrayContainer {
 	endsWith(values: any[]): boolean;
 
 
-	matches(array: any): boolean;
+	matches(array: any[]): boolean;
 
 
 	allPass(testFunction: (item: any, index?: any, array?: any) => boolean): boolean;

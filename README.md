@@ -1,18 +1,18 @@
 To include in your project:
 
-import { PublicArrayContent } from '@writetome51/public-array-content';
+    import { PublicArrayContent } from '@writetome51/public-array-content';
 
 
 PublicArrayContent has many of the basic properties and methods you need to   
-understand the array's contents, and they are all listed further below.
+understand an array's contents, and they are all listed further below.
 
 To instantiate, pass the actual array it will contain to its constructor:
 
-let content = new PublicArrayContent( [item1, item2, item3,...] );
+    let content = new PublicArrayContent( [item1, item2, item3,...] );
 
 You can reset the array by accessing the class 'data' property:
 
-content.data = [1,2,3,4,...];
+    content.data = [1,2,3,4,...];
 
 Here are all properties defined in the class:
 	
