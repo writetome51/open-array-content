@@ -71,7 +71,7 @@ var PublicArrayContent = /** @class */ (function (_super) {
     };
     // For all the methods below, any parameter called 'value' cannot be an object,
     // and any parameter called 'values' cannot contain an object.
-    // This does not include arrays.  Arrays are OK.
+    // This does not include arrays.  Arrays are OK, as long as they don't contain objects.
     // errors if value is object.
     PublicArrayContent.prototype.has = function (value) {
         return array_has_1.arrayHas(value, this.data);

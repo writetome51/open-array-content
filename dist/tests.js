@@ -148,9 +148,3 @@ if (arrays_match_1.arraysMatch(result, [8, 11]))
     console.log('test 24 passed');
 else
     console.log('test 24 FAILED');
-// Test 17:
-content.data = [{ prop: 1 }, 1];
-if (content.hasAny([{ prop: 1 }, 1]))
-    console.log('test 17 passed');
-else
-    console.log('test 17 FAILED');

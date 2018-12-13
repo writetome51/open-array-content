@@ -1,7 +1,7 @@
 # PublicArrayContent
 
-PublicArrayContent is a Typescript/Javascript class with properties and methods that  
-give info about what is in the array.
+A Typescript/Javascript class with properties and methods that give info about  
+what is in the array.
 
 To include in your project:
 
@@ -15,13 +15,17 @@ To instantiate, pass the actual array it will contain to its constructor:
 
     let content = new PublicArrayContent( [item1, item2, item3,...] );
 
-You can reset the array by accessing the class 'data' property:
+You can reset the array by accessing the class `.data` property:
 
     content.data = [1,2,3,4,...];
+    
+Or reset the array using `.set()`, which doesn't break its memory reference:
+
+    filter.set([1,2,3,4,...]);
 
 ## Properties
 
-    data : any[] (read-writable) // the actual array
+	data : any[] (read-writable) // the actual array
 	
 	length : number (read-writable) // length of this.data
 
@@ -40,8 +44,8 @@ NOTICE:  For all the methods below, any parameter called 'value' cannot be an ob
 and any parameter called 'values' cannot contain an object.   
 This does not include arrays. Arrays are OK, as long as they don't contain objects.
     
-    set(newArray): this 
-        // changes the value of this.data without breaking its memory reference.
+    set(newArray): void
+        // changes value of this.data to newArray, without breaking its memory reference.
 
 	asString(glue = ', '): string
         // Does same thing as Array.join()
