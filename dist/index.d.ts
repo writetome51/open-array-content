@@ -2,12 +2,14 @@ import { PublicArrayContainer } from '@writetome51/public-array-container';
 
 
 export declare class PublicArrayContent extends PublicArrayContainer {
+
 	constructor(data?: any[]);
 
 
 	length: number;
 	readonly isEmpty: boolean;
 	readonly notEmpty: boolean;
+	readonly copy: this; // an independent copy of this instance.
 
 
 	asString(glue?: string): string;

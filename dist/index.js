@@ -20,6 +20,7 @@ var array_get_indexes_basic_1 = require("@writetome51/array-get-indexes-basic");
 var array_get_indexes_intermediate_1 = require("@writetome51/array-get-indexes-intermediate");
 var array_has_1 = require("@writetome51/array-has");
 var array_starts_with_ends_with_1 = require("@writetome51/array-starts-with-ends-with");
+var array_get_copy_1 = require("@writetome51/array-get-copy");
 var public_array_container_1 = require("@writetome51/public-array-container");
 var PublicArrayContent = /** @class */ (function (_super) {
     __extends(PublicArrayContent, _super);
@@ -51,35 +52,67 @@ var PublicArrayContent = /** @class */ (function (_super) {
         enumerable: true,
         configurable: true
     });
+    Object.defineProperty(PublicArrayContent.prototype, "copy", {
+        // this.copy -- a copy of the instance, containing an independent copy of this.data that can be
+        // manipulated separately.
+        get: function () {
+            var theCopy = Object.create(this);
+            // make sure theCopy.data is an independent copy:
+            theCopy.data = array_get_copy_1.getCopy(this.data);
+            return theCopy;
+        },
+        enumerable: true,
+        configurable: true
+    });
     // Does same thing as Array.join()
     PublicArrayContent.prototype.asString = function (glue) {
         if (glue === void 0) { glue = ', '; }
         return this.data.join(glue);
     };
-    // returns false if value is object.
+    // For all the methods below, any parameter called 'value' cannot be an object,
+    // and any parameter called 'values' cannot contain an object.
+    // This does not include arrays.  Arrays are OK.
+    // errors if value is object.
     PublicArrayContent.prototype.has = function (value) {
         return array_has_1.arrayHas(value, this.data);
     };
-    // returns false if values contains object.
+    // errors if values contains object.
     PublicArrayContent.prototype.hasAll = function (values) {
         return array_has_1.arrayHasAll(values, this.data);
     };
+    // may error if values contains object. If it first finds a non-object value in values that is also
+    // in this.data, it returns true. If it doesn't, and then finds a value in values that is object,
+    // it errors.
     PublicArrayContent.prototype.hasAny = function (values) {
         return array_has_1.arrayHasAny(values, this.data);
     };
-    // returns false if values contains object.
+    // always returns false if values contains object.
     PublicArrayContent.prototype.hasAdjacent = function (values) {
         return array_has_1.arrayHasAdjacent(values, this.data);
     };
+    // always returns false if values contains object.
     PublicArrayContent.prototype.startsWith = function (values) {
         return array_starts_with_ends_with_1.arrayStartsWith(values, this.data);
     };
+    // always returns false if values contains object.
     PublicArrayContent.prototype.endsWith = function (values) {
         return array_starts_with_ends_with_1.arrayEndsWith(values, this.data);
     };
-    // returns false if array contains object.
+    // always returns false if array contains object.
     PublicArrayContent.prototype.matches = function (array) {
         return arrays_match_1.arraysMatch(array, this.data);
+    };
+    // Does not work if value is object.
+    PublicArrayContent.prototype.firstIndexOf = function (value) {
+        return array_get_indexes_basic_1.getFirstIndexOf(value, this.data);
+    };
+    // Does not work if value is object.
+    PublicArrayContent.prototype.lastIndexOf = function (value) {
+        return array_get_indexes_intermediate_1.getLastIndexOf(value, this.data);
+    };
+    // Does not work if value is object.
+    PublicArrayContent.prototype.indexesOf = function (value) {
+        return array_get_indexes_intermediate_1.getIndexesOf(value, this.data);
     };
     // For the next 3 methods:
     // testFunction(item, index?, array?) checks if item passes test.
@@ -96,18 +129,6 @@ var PublicArrayContent = /** @class */ (function (_super) {
     };
     PublicArrayContent.prototype.indexesThatPass = function (testFunction) {
         return array_get_indexes_intermediate_1.getIndexesThatPass(testFunction, this.data);
-    };
-    // Does not work if value is object.
-    PublicArrayContent.prototype.firstIndexOf = function (value) {
-        return array_get_indexes_basic_1.getFirstIndexOf(value, this.data);
-    };
-    // Does not work if value is object.
-    PublicArrayContent.prototype.lastIndexOf = function (value) {
-        return array_get_indexes_intermediate_1.getLastIndexOf(value, this.data);
-    };
-    // Does not work if value is object.
-    PublicArrayContent.prototype.indexesOf = function (value) {
-        return array_get_indexes_intermediate_1.getIndexesOf(value, this.data);
     };
     return PublicArrayContent;
 }(public_array_container_1.PublicArrayContainer));

@@ -22,6 +22,20 @@ else console.log('test 3 FAILED');
 if (content.notEmpty) console.log('test 4 passed');
 else console.log('test 4 FAILED');
 
+// Test 4A: make sure .copy property is instance of PublicArrayContent:
+let copy = content.copy;
+if (copy.className && copy.className === 'PublicArrayContent') console.log('test 4A passed');
+else console.log('test 4A FAILED');
+
+// Test 4B: make sure copy has matching .data property:
+if (arraysMatch(content.data, copy.data)) console.log('test 4B passed');
+else console.log('test 4B FAILED');
+
+// Test 4C: make sure copy.data is not linked in memory to content.data:
+copy.returnThis_after(copy.set([10, 20])); // makes sure copy has inherited ancestor method.
+if (arraysMatch(content.data, copy.data)) console.log('test 4C FAILED'); // they should not match.
+else console.log('test 4C passed');
+
 // Test 5:
 if (content.has('long')) console.log('test 5 passed');
 else console.log('test 5 FAILED');
@@ -113,3 +127,9 @@ else console.log('test 23 FAILED');
 result = content.indexesOf(100);
 if (arraysMatch(result, [8, 11])) console.log('test 24 passed');
 else console.log('test 24 FAILED');
+
+
+// Test 17:
+content.data = [{prop: 1}, 1];
+if (content.hasAny([{prop: 1}, 1])) console.log('test 17 passed');
+else console.log('test 17 FAILED');
