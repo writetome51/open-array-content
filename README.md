@@ -21,7 +21,7 @@ You can reset the array by accessing the class `.data` property:
     
 Or reset the array using `.set()`, which doesn't break its memory reference:
 
-    filter.set([1,2,3,4,...]);
+    content.set([1,2,3,4,...]);
 
 ## Properties
 
