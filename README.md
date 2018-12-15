@@ -19,9 +19,6 @@ You can reset the array by accessing the class `.data` property:
 
     content.data = [1,2,3,4,...];
     
-Or reset the array using `.set()`, which doesn't break its memory reference:
-
-    content.set([1,2,3,4,...]);
 
 ## Properties
 
@@ -43,9 +40,6 @@ Or reset the array using `.set()`, which doesn't break its memory reference:
 NOTICE:  For all the methods below, any parameter called 'value' cannot be an object,   
 and any parameter called 'values' cannot contain an object.   
 This does not include arrays. Arrays are OK, as long as they don't contain objects.
-    
-    set(newArray): void
-        // changes value of this.data to newArray, without breaking its memory reference.
 
 	asString(glue = ', '): string
         // Does same thing as Array.join()

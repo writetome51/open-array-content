@@ -35,6 +35,6 @@
     "@writetome51/array-has": "~1.0.5",
     "@writetome51/array-starts-with-ends-with": "~1.1.0",
     "@writetome51/array-get-copy": "~1.1.1",
-    "@writetome51/public-array-container": "~1.1.1"
+    "@writetome51/public-array-container": "~1.0.4"
   }
 }
