@@ -1,6 +1,6 @@
 {
   "name": "@writetome51/public-array-content",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "description": "An array-manipulating typescript/javascript class with properties and methods that give info about what is in the array",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
