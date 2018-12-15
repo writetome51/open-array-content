@@ -32,7 +32,7 @@ if (arraysMatch(content.data, copy.data)) console.log('test 4B passed');
 else console.log('test 4B FAILED');
 
 // Test 4C: make sure copy.data is not linked in memory to content.data:
-copy.push('100000'); 
+copy.data.push('100000');
 if (arraysMatch(content.data, copy.data)) console.log('test 4C FAILED'); // they should not match.
 else console.log('test 4C passed');
 
