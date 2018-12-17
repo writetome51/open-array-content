@@ -1,6 +1,6 @@
 {
   "name": "@writetome51/public-array-content",
-  "version": "1.2.0",
+  "version": "2.0.0",
   "description": "An array-manipulating typescript/javascript class with properties and methods that give info about what is in the array",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -35,6 +35,6 @@
     "@writetome51/array-has": "~1.0.5",
     "@writetome51/array-starts-with-ends-with": "~1.1.0",
     "@writetome51/array-get-copy": "~1.1.1",
-    "@writetome51/public-array-container": "~1.0.4"
+    "@writetome51/public-array-container": "~2.0.0"
   }
 }
