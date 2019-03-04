@@ -1,7 +1,7 @@
 # PublicArrayContent
 
-A Typescript/Javascript class with properties and methods that give info about  
-what is in the array.
+An array-manipulating Typescript/Javascript class with properties and methods  
+that give info about what is in the array.
 
 ## Constructor
 ```
