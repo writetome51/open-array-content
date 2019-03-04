@@ -3,22 +3,7 @@
 A Typescript/Javascript class with properties and methods that give info about  
 what is in the array.
 
-## Installation
-
-You must have npm installed first. Then, in the command line:
-
-    npm install @writetome51/public-array-content
-
-## Loading
-
-    // if using TypeScript:
-    import { PublicArrayContent } from '@writetome51/public-array-content';
-    // if using ES5 JavaScript:
-    var PublicArrayContent = 
-            require('@writetome51/public-array-content').PublicArrayContent;
-
-
-To instantiate, pass the actual array it will contain to its constructor:
+To instantiate, pass the array it will contain to its constructor:
 
     let content = new PublicArrayContent( [item1, item2, item3,...] );
 
@@ -29,25 +14,25 @@ You can reset the array by accessing the class `.data` property:
 
 ## Properties
 ```
-data : any[] (read-writable) // the actual array
+data : any[]  // the actual array
 	
-length : number (read-writable) // length of this.data
+length : number // length of this.data
 
 isEmpty : boolean (read-only)
 
 notEmpty : boolean (read-only)
 
 copy : this (read-only)
-        // a copy of the instance, containing an independent copy of this.data 
-        // that can be manipulated separately.
+    // a copy of the instance, containing an independent copy of this.data 
+    // that can be manipulated separately.
 
 className : string (read-only)
 ```
 
 ## Methods
 
-NOTICE:  For all the methods below, any parameter called 'value' cannot be an object,   
-and any parameter called 'values' cannot contain an object.   
+NOTICE:  For all the methods below, any parameter called `value` cannot be an object,   
+and any parameter called `values` cannot contain an object.   
 This does not include arrays. Arrays are OK, as long as they don't contain objects.
 
 ```
@@ -149,6 +134,21 @@ protected   _runMethod_and_returnThis(
 ## Inheritance Chain
 
 PublicArrayContent<--[PublicArrayContainer](https://github.com/writetome51/public-array-container#publicarraycontainer)<--[BaseClass](https://github.com/writetome51/typescript-base-class#baseclass)
+
+## Installation
+
+You must have npm installed first. Then, in the command line:
+
+    npm install @writetome51/public-array-content
+
+## Loading
+```
+// if using TypeScript:
+import { PublicArrayContent } from '@writetome51/public-array-content';
+// if using ES5 JavaScript:
+var PublicArrayContent = 
+    require('@writetome51/public-array-content').PublicArrayContent;
+```
 
 
 ## License

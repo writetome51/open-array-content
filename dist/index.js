@@ -16,8 +16,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var isEmpty_notEmpty_1 = require("basic-data-handling/isEmpty_notEmpty");
 var errorIfNotFunction_1 = require("basic-data-handling/errorIfNotFunction");
 var arrays_match_1 = require("@writetome51/arrays-match");
-var array_get_indexes_basic_1 = require("@writetome51/array-get-indexes-basic");
-var array_get_indexes_intermediate_1 = require("@writetome51/array-get-indexes-intermediate");
+var array_get_indexes_1 = require("@writetome51/array-get-indexes");
 var array_has_1 = require("@writetome51/array-has");
 var array_starts_with_ends_with_1 = require("@writetome51/array-starts-with-ends-with");
 var array_get_copy_1 = require("@writetome51/array-get-copy");
@@ -102,18 +101,6 @@ var PublicArrayContent = /** @class */ (function (_super) {
     PublicArrayContent.prototype.matches = function (array) {
         return arrays_match_1.arraysMatch(array, this.data);
     };
-    // Does not work if value is object.
-    PublicArrayContent.prototype.firstIndexOf = function (value) {
-        return array_get_indexes_basic_1.getFirstIndexOf(value, this.data);
-    };
-    // Does not work if value is object.
-    PublicArrayContent.prototype.lastIndexOf = function (value) {
-        return array_get_indexes_intermediate_1.getLastIndexOf(value, this.data);
-    };
-    // Does not work if value is object.
-    PublicArrayContent.prototype.indexesOf = function (value) {
-        return array_get_indexes_intermediate_1.getIndexesOf(value, this.data);
-    };
     // For the next 3 methods:
     // testFunction(item, index?, array?) checks if item passes test.
     // If yes, it returns true.
@@ -128,7 +115,19 @@ var PublicArrayContent = /** @class */ (function (_super) {
         return this.data.some(testFunction);
     };
     PublicArrayContent.prototype.indexesThatPass = function (testFunction) {
-        return array_get_indexes_intermediate_1.getIndexesThatPass(testFunction, this.data);
+        return array_get_indexes_1.getIndexesThatPass(testFunction, this.data);
+    };
+    // Does not work if value is object.
+    PublicArrayContent.prototype.firstIndexOf = function (value) {
+        return array_get_indexes_1.getFirstIndexOf(value, this.data);
+    };
+    // Does not work if value is object.
+    PublicArrayContent.prototype.lastIndexOf = function (value) {
+        return array_get_indexes_1.getLastIndexOf(value, this.data);
+    };
+    // Does not work if value is object.
+    PublicArrayContent.prototype.indexesOf = function (value) {
+        return array_get_indexes_1.getIndexesOf(value, this.data);
     };
     return PublicArrayContent;
 }(public_array_container_1.PublicArrayContainer));

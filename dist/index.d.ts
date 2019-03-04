@@ -36,13 +36,13 @@ export declare class PublicArrayContent extends PublicArrayContainer {
 	matches(array: any[]): boolean;
 
 
-	allPass(testFunction: (item: any, index?: any, array?: any) => boolean): boolean;
+	allPass(testFunction: (item: any, index?: number, array?: any[]) => boolean): boolean;
 
 
-	anyPass(testFunction: (item: any, index?: any, array?: any) => boolean): boolean;
+	anyPass(testFunction: (item: any, index?: number, array?: any[]) => boolean): boolean;
 
 
-	indexesThatPass(testFunction: (item: any, index?: any, array?: any) => boolean): number[];
+	indexesThatPass(testFunction: (item: any, index?: number, array?: any[]) => boolean): number[];
 
 
 	firstIndexOf(value: any): number;
@@ -52,4 +52,6 @@ export declare class PublicArrayContent extends PublicArrayContainer {
 
 
 	indexesOf(value: any): number[];
+
+
 }

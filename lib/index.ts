@@ -1,9 +1,8 @@
 import { isEmpty, notEmpty } from 'basic-data-handling/isEmpty_notEmpty';
 import { errorIfNotFunction } from 'basic-data-handling/errorIfNotFunction';
 import { arraysMatch } from '@writetome51/arrays-match';
-import { getFirstIndexOf } from '@writetome51/array-get-indexes-basic';
-import { getLastIndexOf, getIndexesOf, getIndexesThatPass }
-	from '@writetome51/array-get-indexes-intermediate';
+import { getFirstIndexOf, getLastIndexOf, getIndexesOf, getIndexesThatPass }
+	from '@writetome51/array-get-indexes';
 import { arrayHas, arrayHasAll, arrayHasAny, arrayHasAdjacent } from '@writetome51/array-has';
 import { arrayStartsWith, arrayEndsWith } from '@writetome51/array-starts-with-ends-with';
 import { getCopy } from '@writetome51/array-get-copy';
@@ -103,24 +102,6 @@ export class PublicArrayContent extends PublicArrayContainer {
 	}
 
 
-	// Does not work if value is object.
-	firstIndexOf(value: any): number {
-		return getFirstIndexOf(value, this.data);
-	}
-
-
-	// Does not work if value is object.
-	lastIndexOf(value: any): number {
-		return getLastIndexOf(value, this.data);
-	}
-
-
-	// Does not work if value is object.
-	indexesOf(value: any): number[] {
-		return getIndexesOf(value, this.data);
-	}
-
-
 	// For the next 3 methods:
 
 	// testFunction(item, index?, array?) checks if item passes test.
@@ -142,6 +123,24 @@ export class PublicArrayContent extends PublicArrayContainer {
 
 	indexesThatPass(testFunction: (item: any, index?, array?) => boolean): number[] {
 		return getIndexesThatPass(testFunction, this.data);
+	}
+
+
+	// Does not work if value is object.
+	firstIndexOf(value: any): number {
+		return getFirstIndexOf(value, this.data);
+	}
+
+
+	// Does not work if value is object.
+	lastIndexOf(value: any): number {
+		return getLastIndexOf(value, this.data);
+	}
+
+
+	// Does not work if value is object.
+	indexesOf(value: any): number[] {
+		return getIndexesOf(value, this.data);
 	}
 
 
