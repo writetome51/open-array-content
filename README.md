@@ -34,6 +34,7 @@ className : string (read-only)
 <details>
 <summary>view methods</summary>
 
+
 NOTICE:  For all the methods below, any parameter called `value` cannot be an object,   
 and any parameter called `values` cannot contain an object.   
 This does not include arrays. Arrays are OK, as long as they don't contain objects.
