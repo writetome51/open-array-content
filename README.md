@@ -3,14 +3,15 @@
 A Typescript/Javascript class with properties and methods that give info about  
 what is in the array.
 
-To instantiate, pass the array it will contain to its constructor:
-
-    let content = new PublicArrayContent( [item1, item2, item3,...] );
+## Constructor
+```
+constructor(data? = []) // 'data' becomes the array it contains.
+```
 
 You can reset the array by accessing the class `.data` property:
-
-    content.data = [1,2,3,4,...];
-    
+```
+content.data = [1,2,3,4];
+```  
 
 ## Properties
 ```
@@ -30,6 +31,8 @@ className : string (read-only)
 ```
 
 ## Methods
+<details>
+<summary>view methods</summary>
 
 NOTICE:  For all the methods below, any parameter called `value` cannot be an object,   
 and any parameter called `values` cannot contain an object.   
@@ -40,48 +43,47 @@ asString(glue = ', '): string
     // Does same thing as Array.join()
 
 has(value): boolean
-    // returns true if this.data contains value.
+    // returns true if this.data contains `value`.
 
-hasAll(values: any[]): boolean
-    // returns true if this.data contains every value in values.
+hasAll(values): boolean
+    // returns true if this.data contains every value in `values`.
 
-hasAny(values: any[]): boolean
-    // returns true if this.data contains at least 1 value in values.
+hasAny(values): boolean
+    // returns true if this.data contains at least 1 value in `values`.
 
-hasAdjacent(values: any[]): boolean
-    // returns true if this.data contains exact sequence of values.
+hasAdjacent(values): boolean
+    // returns true if this.data contains exact sequence of `values`.
     // Example: if this.data is [10,1,2,3,11], then this.hasAdjacent([1,2,3]) 
     // returns true.
 
-startsWith(values: any[]): boolean
-    // returns true if this.data starts with exact sequence of values.
-    // always returns false if values contains object.
+startsWith(values): boolean
+    // returns true if this.data starts with exact sequence of `values`.
+    // always returns false if `values` contains object.
 
-endsWith(values: any[]): boolean
-    // returns true if this.data ends with exact sequence of values.
-    // always returns false if values contains object.
+endsWith(values): boolean
+    // returns true if this.data ends with exact sequence of `values`.
+    // always returns false if `values` contains object.
 
-matches(array): boolean
-    // returns true if this.data matches passed array exactly.
-    // always returns false if array contains object.
+matches(values): boolean
+    // returns true if this.data matches `values` exactly.
     
 firstIndexOf(value): number
-    // returns index of first instance of value found in this.data
+    // returns index of first instance of `value` found in this.data
     
 lastIndexOf(value): number
-    // returns index of last instance of value found in this.data
+    // returns index of last instance of `value` found in this.data
     
 indexesOf(value): number[]
-    // returns indexes of every instance of value found in this.data
+    // returns indexes of every instance of `value` found in this.data
+```
 
+For the next 3 methods:  
+`testFunction` is a callback with same signature as callback passed to  
+`Array.filter()` :  
+`testFunction(item, index?, theArray?): boolean`  
+If `item` passes a test, `testFunction` returns true.
 
-// For the next 3 methods:
-// testFunction is a callback with same signature as callback passed to
-// Array.filter():
-// testFunction(item, index?, theArray?): boolean
-// If item passes a test, testFunction returns true.  It's OK if item is an object.
-
-
+```
 allPass(testFunction): boolean
     // returns true if all items pass test.
 
@@ -90,7 +92,10 @@ anyPass(testFunction): boolean
 
 indexesThatPass(testFunction): number[]
     // returns indexes of items that pass test.
-
+``` 
+The methods below are not important to know about in order to use this  
+class.  They're inherited from [BaseClass](https://github.com/writetome51/typescript-base-class#baseclass) .
+``` 
 protected   _createGetterAndOrSetterForEach(
                   propertyNames: string[],
                   configuration: IGetterSetterConfiguration
@@ -129,6 +134,7 @@ protected   _runMethod_and_returnThis(
     additionalAction?: Function // takes the result returned by method as an argument.
 ) : this
 ```
+</details>
 
 
 ## Inheritance Chain
