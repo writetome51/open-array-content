@@ -10,7 +10,7 @@ constructor(data? = []) // 'data' becomes the array it contains.
 
 You can reset the array by accessing the class `.data` property:
 ```
-content.data = [1,2,3,4];
+this.data = [1,2,3,4];
 ```  
 
 ## Properties
