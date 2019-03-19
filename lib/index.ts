@@ -1,12 +1,15 @@
-import { isEmpty, notEmpty } from 'basic-data-handling/isEmpty_notEmpty';
-import { errorIfNotFunction } from 'basic-data-handling/errorIfNotFunction';
+import { append, prepend } from '@writetome51/array-append-prepend';
+import { arrayHas, arrayHasAll, arrayHasAny, arrayHasAdjacent } from '@writetome51/array-has';
 import { arraysMatch } from '@writetome51/arrays-match';
+import { arrayStartsWith, arrayEndsWith } from '@writetome51/array-starts-with-ends-with';
+import { errorIfNotFunction } from 'basic-data-handling/errorIfNotFunction';
+import { getCopy } from '@writetome51/array-get-copy';
 import { getFirstIndexOf, getLastIndexOf, getIndexesOf, getIndexesThatPass }
 	from '@writetome51/array-get-indexes';
-import { arrayHas, arrayHasAll, arrayHasAny, arrayHasAdjacent } from '@writetome51/array-has';
-import { arrayStartsWith, arrayEndsWith } from '@writetome51/array-starts-with-ends-with';
-import { getCopy } from '@writetome51/array-get-copy';
+import { isEmpty, notEmpty } from 'basic-data-handling/isEmpty_notEmpty';
+import { moveByIndex } from '@writetome51/array-move-by-index';
 import { PublicArrayContainer } from '@writetome51/public-array-container';
+import { setArray } from '@writetome51/set-array';
 
 
 export class PublicArrayContent extends PublicArrayContainer {
@@ -39,6 +42,7 @@ export class PublicArrayContent extends PublicArrayContainer {
 
 	// this.copy -- a copy of the instance, containing an independent copy of this.data that can be
 	// manipulated separately.
+
 	get copy(): this {
 		let theCopy = Object.create(this);
 		// make sure theCopy.data is an independent copy:
@@ -47,7 +51,37 @@ export class PublicArrayContent extends PublicArrayContainer {
 	}
 
 
+	// Changes the value of this.data without breaking its memory reference.
+
+	set(newArray): void {
+		setArray(this.data, newArray);
+	}
+
+
+	append(values: any[]): this {
+		return this._returnThis_after(append(values, this.data));
+	}
+
+
+	prepend(values: any[]): this {
+		return this._returnThis_after(prepend(values, this.data));
+	}
+
+
+	moveByIndex(currentIndex, newIndex): this {
+		return this._returnThis_after(moveByIndex(currentIndex, newIndex, this.data));
+	}
+
+
+	forEach(iterationFunction: (currentValue, currentIndex?, entireArray?) => any): void {
+		for (let i = 0; i < this.data.length; ++i) {
+			iterationFunction(this.data[i], i, this.data);
+		}
+	}
+
+
 	// Does same thing as Array.join()
+
 	asString(glue = ', '): string {
 		return this.data.join(glue);
 	}
@@ -58,47 +92,57 @@ export class PublicArrayContent extends PublicArrayContainer {
 	// This does not include arrays.  Arrays are OK, as long as they don't contain objects.
 
 
-	// errors if value is object.
+	firstIndexOf(value: any): number {
+		return getFirstIndexOf(value, this.data);
+	}
+
+
+	lastIndexOf(value: any): number {
+		return getLastIndexOf(value, this.data);
+	}
+
+
+	indexesOf(value: any): number[] {
+		return getIndexesOf(value, this.data);
+	}
+
+
 	has(value: any): boolean {
 		return arrayHas(value, this.data);
 	}
 
 
-	// errors if values contains object.
 	hasAll(values: any[]): boolean {
 		return arrayHasAll(values, this.data);
 	}
 
 
-	// may error if values contains object. If it first finds a non-object value in values that is also
+	// May error if values contains object. If it first finds a non-object value in values that is also
 	// in this.data, it returns true. If it doesn't, and then finds a value in values that is object,
 	// it errors.
+
 	hasAny(values: any[]): boolean {
 		return arrayHasAny(values, this.data);
 	}
 
 
-	// always returns false if values contains object.
 	hasAdjacent(values: any[]): boolean {
 		return arrayHasAdjacent(values, this.data);
 	}
 
 
-	// always returns false if values contains object.
 	startsWith(values: any[]): boolean {
 		return arrayStartsWith(values, this.data);
 	}
 
 
-	// always returns false if values contains object.
 	endsWith(values: any[]): boolean {
 		return arrayEndsWith(values, this.data);
 	}
 
 
-	// always returns false if array contains object.
-	matches(array: any[]): boolean {
-		return arraysMatch(array, this.data);
+	matches(values: any[]): boolean {
+		return arraysMatch(values, this.data);
 	}
 
 
@@ -123,24 +167,6 @@ export class PublicArrayContent extends PublicArrayContainer {
 
 	indexesThatPass(testFunction: (item: any, index?, array?) => boolean): number[] {
 		return getIndexesThatPass(testFunction, this.data);
-	}
-
-
-	// Does not work if value is object.
-	firstIndexOf(value: any): number {
-		return getFirstIndexOf(value, this.data);
-	}
-
-
-	// Does not work if value is object.
-	lastIndexOf(value: any): number {
-		return getLastIndexOf(value, this.data);
-	}
-
-
-	// Does not work if value is object.
-	indexesOf(value: any): number[] {
-		return getIndexesOf(value, this.data);
 	}
 
 

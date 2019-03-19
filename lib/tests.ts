@@ -127,3 +127,56 @@ else console.log('test 23 FAILED');
 result = content.indexesOf(100);
 if (arraysMatch(result, [8, 11])) console.log('test 24 passed');
 else console.log('test 24 FAILED');
+
+
+// Test 25: make sure .append() works:
+content.append(['blah', 'goo']);
+if (content.data[content.data.length - 1] === 'goo' && content.data[content.data.length - 2] === 'blah')
+	console.log('test 25 passed');
+else console.log('test 25 FAILED');
+
+// Test 26: make sure .prepend() works:
+content.prepend(['ccc', 'ddd']);
+if (content.data[0] === 'ccc' && content.data[1] === 'ddd') console.log('test 26 passed');
+else console.log('test 26 FAILED');
+
+// Test 27: make sure .forEach() lets you access the current item, its index, and entire array:
+content.data = ['a', 'b', 'c', 'd'];
+let allData = [];
+content.forEach((item, index, theArr) => {
+	allData.push([item, index, theArr]);
+});
+if (arraysMatch(
+	allData,
+	[
+		['a', 0, ['a', 'b', 'c', 'd']], ['b', 1, ['a', 'b', 'c', 'd']],
+		['c', 2, ['a', 'b', 'c', 'd']], ['d', 3, ['a', 'b', 'c', 'd']]
+	]
+)) console.log('test 27 passed');
+else console.log('test 27 FAILED');
+
+// Test 27A: make sure .forEach() allows you to change the values of each item:
+content.forEach((item, index, theArr) => {
+	theArr[index] = index;
+});
+if (arraysMatch(content.data, [0, 1, 2, 3])) console.log('test 27A passed');
+else console.log('test 27A FAILED');
+
+// Test 28: make sure .set() changes value of content.data without breaking memory reference:
+let dataCopy = content.data;
+content.set([6, 7, 8, 9]);
+if (arraysMatch(content.data, [6, 7, 8, 9]) && arraysMatch(content.data, dataCopy))
+	console.log('test 28 passed');
+else console.log('test 28 FAILED');
+
+
+// Test 29: make sure .moveByIndex() works:
+// content.data is [1,2,3,4,5]
+content.data = [[0, 1], [2, 3], [4, 5], [6, 7], [8, 9]];
+content.moveByIndex(-1, 1);
+if (arraysMatch(
+	content.data,
+	[[0, 1], [8, 9], [2, 3], [4, 5], [6, 7]])
+) console.log('test 29 passed');
+else console.log('test 29 FAILED');
+

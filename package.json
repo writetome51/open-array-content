@@ -1,7 +1,7 @@
 {
   "name": "@writetome51/public-array-content",
-  "version": "2.0.2",
-  "description": "An array-manipulating typescript/javascript class with properties and methods that give info about what is in the array",
+  "version": "2.1.0",
+  "description": "An array-manipulating typescript/javascript class with properties and methods that give info about what is in the array and can make basic changes to the array",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "scripts": {
@@ -24,16 +24,17 @@
     "url": "https://github.com/writetome51/public-array-content/issues"
   },
   "homepage": "https://github.com/writetome51/public-array-content#readme",
-  "devDependencies": {
-    "typescript": "^3.0.1"
-  },
+  "devDependencies": {},
   "dependencies": {
-    "basic-data-handling": "~1.0.15",
-    "@writetome51/arrays-match": "~1.0.5",
+    "@writetome51/array-append-prepend": "~1.0.5",
+    "@writetome51/array-get-copy": "~1.1.2",
     "@writetome51/array-get-indexes": "~1.0.0",
     "@writetome51/array-has": "~1.0.7",
+    "@writetome51/array-move-by-index": "~1.0.1",
     "@writetome51/array-starts-with-ends-with": "~1.1.2",
-    "@writetome51/array-get-copy": "~1.1.2",
-    "@writetome51/public-array-container": "~2.0.2"
+    "@writetome51/arrays-match": "~1.0.5",
+    "@writetome51/public-array-container": "~2.0.2",
+    "@writetome51/set-array": "~1.0.2",
+    "basic-data-handling": "~1.0.15"
   }
 }

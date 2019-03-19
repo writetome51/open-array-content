@@ -12,7 +12,33 @@ export declare class PublicArrayContent extends PublicArrayContainer {
 	readonly copy: this; // an independent copy of this instance.
 
 
+	set(newArray: any[]): void
+
+
+	append(values: any[]): this
+
+
+	prepend(values: any[]): this
+
+
+	moveByIndex(currentIndex: number, newIndex: number): this
+
+
+	forEach(
+		iterationFunction: (currentValue: any, currentIndex?: number, entireArray?: any[]) => any
+	): void
+
+
 	asString(glue?: string): string;
+
+
+	firstIndexOf(value: any): number;
+
+
+	lastIndexOf(value: any): number;
+
+
+	indexesOf(value: any): number[];
 
 
 	has(value: any): boolean;
@@ -33,7 +59,7 @@ export declare class PublicArrayContent extends PublicArrayContainer {
 	endsWith(values: any[]): boolean;
 
 
-	matches(array: any[]): boolean;
+	matches(values: any[]): boolean;
 
 
 	allPass(testFunction: (item: any, index?: number, array?: any[]) => boolean): boolean;
@@ -43,15 +69,6 @@ export declare class PublicArrayContent extends PublicArrayContainer {
 
 
 	indexesThatPass(testFunction: (item: any, index?: number, array?: any[]) => boolean): number[];
-
-
-	firstIndexOf(value: any): number;
-
-
-	lastIndexOf(value: any): number;
-
-
-	indexesOf(value: any): number[];
 
 
 }

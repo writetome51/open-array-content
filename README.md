@@ -1,7 +1,7 @@
 # PublicArrayContent
 
 An array-manipulating Typescript/Javascript class with properties and methods  
-that give info about what is in the array.
+that give info about what is in the array, and can make basic changes to the array.
 
 ## Constructor
 ```
@@ -35,14 +35,32 @@ className : string (read-only)
 <summary>view methods</summary>
 
 
+```
+set(newArray): void
+    // Changes value of this.data to newArray without breaking its memory reference.
+    // So if there are copies of this.data, the copies will be updated as well.
+
+append(values): this
+    // attaches values to end of this.data.
+
+prepend(values): this
+    // attaches values to beginning of this.data.
+
+moveByIndex(currentIndex, newIndex): this
+    // moves an item, identified by currentIndex, to newIndex.
+    // Both currentIndex and newIndex can be negative or positive.
+
+forEach(iterationFunction): void
+    // Behaves same as Array.forEach()
+    // iterationFunction = function(currentValue, currentIndex?, entireArray?): any
+
+asString(glue = ', '): string
+    // Does same thing as Array.join()
+```
 NOTICE:  For all the methods below, any parameter called `value` cannot be an object,   
 and any parameter called `values` cannot contain an object.   
 This does not include arrays. Arrays are OK, as long as they don't contain objects.
-
 ```
-asString(glue = ', '): string
-    // Does same thing as Array.join()
-
 has(value): boolean
     // returns true if this.data contains `value`.
 
