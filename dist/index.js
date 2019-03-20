@@ -92,15 +92,6 @@ var PublicArrayContent = /** @class */ (function (_super) {
     // For all the methods below, any parameter called 'value' cannot be an object,
     // and any parameter called 'values' cannot contain an object.
     // This does not include arrays.  Arrays are OK, as long as they don't contain objects.
-    PublicArrayContent.prototype.firstIndexOf = function (value) {
-        return array_get_indexes_1.getFirstIndexOf(value, this.data);
-    };
-    PublicArrayContent.prototype.lastIndexOf = function (value) {
-        return array_get_indexes_1.getLastIndexOf(value, this.data);
-    };
-    PublicArrayContent.prototype.indexesOf = function (value) {
-        return array_get_indexes_1.getIndexesOf(value, this.data);
-    };
     PublicArrayContent.prototype.has = function (value) {
         return array_has_1.arrayHas(value, this.data);
     };
@@ -124,6 +115,15 @@ var PublicArrayContent = /** @class */ (function (_super) {
     };
     PublicArrayContent.prototype.matches = function (values) {
         return arrays_match_1.arraysMatch(values, this.data);
+    };
+    PublicArrayContent.prototype.firstIndexOf = function (value) {
+        return array_get_indexes_1.getFirstIndexOf(value, this.data);
+    };
+    PublicArrayContent.prototype.lastIndexOf = function (value) {
+        return array_get_indexes_1.getLastIndexOf(value, this.data);
+    };
+    PublicArrayContent.prototype.indexesOf = function (value) {
+        return array_get_indexes_1.getIndexesOf(value, this.data);
     };
     // For the next 3 methods:
     // testFunction(item, index?, array?) checks if item passes test.

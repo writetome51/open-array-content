@@ -32,15 +32,6 @@ export declare class PublicArrayContent extends PublicArrayContainer {
 	asString(glue?: string): string;
 
 
-	firstIndexOf(value: any): number;
-
-
-	lastIndexOf(value: any): number;
-
-
-	indexesOf(value: any): number[];
-
-
 	has(value: any): boolean;
 
 
@@ -60,6 +51,15 @@ export declare class PublicArrayContent extends PublicArrayContainer {
 
 
 	matches(values: any[]): boolean;
+
+
+	firstIndexOf(value: any): number;
+
+
+	lastIndexOf(value: any): number;
+
+
+	indexesOf(value: any): number[];
 
 
 	allPass(testFunction: (item: any, index?: number, array?: any[]) => boolean): boolean;

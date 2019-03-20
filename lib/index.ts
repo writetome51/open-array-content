@@ -92,21 +92,6 @@ export class PublicArrayContent extends PublicArrayContainer {
 	// This does not include arrays.  Arrays are OK, as long as they don't contain objects.
 
 
-	firstIndexOf(value: any): number {
-		return getFirstIndexOf(value, this.data);
-	}
-
-
-	lastIndexOf(value: any): number {
-		return getLastIndexOf(value, this.data);
-	}
-
-
-	indexesOf(value: any): number[] {
-		return getIndexesOf(value, this.data);
-	}
-
-
 	has(value: any): boolean {
 		return arrayHas(value, this.data);
 	}
@@ -146,12 +131,28 @@ export class PublicArrayContent extends PublicArrayContainer {
 	}
 
 
+	firstIndexOf(value: any): number {
+		return getFirstIndexOf(value, this.data);
+	}
+
+
+	lastIndexOf(value: any): number {
+		return getLastIndexOf(value, this.data);
+	}
+
+
+	indexesOf(value: any): number[] {
+		return getIndexesOf(value, this.data);
+	}
+
+
 	// For the next 3 methods:
 
 	// testFunction(item, index?, array?) checks if item passes test.
 	// If yes, it returns true.
 
 	// returns true if all items pass test.
+
 	allPass(testFunction: (item: any, index?, array?) => boolean): boolean {
 		errorIfNotFunction(testFunction);
 		return this.data.every(testFunction);
@@ -159,6 +160,7 @@ export class PublicArrayContent extends PublicArrayContainer {
 
 
 	// returns true if at least 1 item passes.
+
 	anyPass(testFunction: (item: any, index?, array?) => boolean): boolean {
 		errorIfNotFunction(testFunction);
 		return this.data.some(testFunction);

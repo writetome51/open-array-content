@@ -1,6 +1,6 @@
 {
   "name": "@writetome51/public-array-content",
-  "version": "2.1.0",
+  "version": "2.1.1",
   "description": "An array-manipulating typescript/javascript class with properties and methods that give info about what is in the array and can make basic changes to the array",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -28,7 +28,7 @@
   "dependencies": {
     "@writetome51/array-append-prepend": "~1.0.5",
     "@writetome51/array-get-copy": "~1.1.2",
-    "@writetome51/array-get-indexes": "~1.0.0",
+    "@writetome51/array-get-indexes": "~1.0.1",
     "@writetome51/array-has": "~1.0.7",
     "@writetome51/array-move-by-index": "~1.0.1",
     "@writetome51/array-starts-with-ends-with": "~1.1.2",
