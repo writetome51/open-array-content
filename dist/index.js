@@ -17,10 +17,11 @@ var array_append_prepend_1 = require("@writetome51/array-append-prepend");
 var array_has_1 = require("@writetome51/array-has");
 var arrays_match_1 = require("@writetome51/arrays-match");
 var array_starts_with_ends_with_1 = require("@writetome51/array-starts-with-ends-with");
-var errorIfNotFunction_1 = require("basic-data-handling/errorIfNotFunction");
+var error_if_not_function_1 = require("error-if-not-function");
+var error_if_not_integer_zero_or_greater_1 = require("error-if-not-integer-zero-or-greater");
 var array_get_copy_1 = require("@writetome51/array-get-copy");
 var array_get_indexes_1 = require("@writetome51/array-get-indexes");
-var isEmpty_notEmpty_1 = require("basic-data-handling/isEmpty_notEmpty");
+var is_empty_not_empty_1 = require("@writetome51/is-empty-not-empty");
 var array_move_by_index_1 = require("@writetome51/array-move-by-index");
 var public_array_container_1 = require("@writetome51/public-array-container");
 var set_array_1 = require("@writetome51/set-array");
@@ -35,6 +36,7 @@ var PublicArrayContent = /** @class */ (function (_super) {
             return this.data.length;
         },
         set: function (value) {
+            error_if_not_integer_zero_or_greater_1.errorIfNotIntegerZeroOrGreater(value);
             this.data.length = value;
         },
         enumerable: true,
@@ -42,14 +44,14 @@ var PublicArrayContent = /** @class */ (function (_super) {
     });
     Object.defineProperty(PublicArrayContent.prototype, "isEmpty", {
         get: function () {
-            return isEmpty_notEmpty_1.isEmpty(this.data);
+            return is_empty_not_empty_1.isEmpty(this.data);
         },
         enumerable: true,
         configurable: true
     });
     Object.defineProperty(PublicArrayContent.prototype, "notEmpty", {
         get: function () {
-            return isEmpty_notEmpty_1.notEmpty(this.data);
+            return is_empty_not_empty_1.notEmpty(this.data);
         },
         enumerable: true,
         configurable: true
@@ -80,6 +82,7 @@ var PublicArrayContent = /** @class */ (function (_super) {
         return this._returnThis_after(array_move_by_index_1.moveByIndex(currentIndex, newIndex, this.data));
     };
     PublicArrayContent.prototype.forEach = function (iterationFunction) {
+        error_if_not_function_1.errorIfNotFunction(iterationFunction);
         for (var i = 0; i < this.data.length; ++i) {
             iterationFunction(this.data[i], i, this.data);
         }
@@ -130,12 +133,12 @@ var PublicArrayContent = /** @class */ (function (_super) {
     // If yes, it returns true.
     // returns true if all items pass test.
     PublicArrayContent.prototype.allPass = function (testFunction) {
-        errorIfNotFunction_1.errorIfNotFunction(testFunction);
+        error_if_not_function_1.errorIfNotFunction(testFunction);
         return this.data.every(testFunction);
     };
     // returns true if at least 1 item passes.
     PublicArrayContent.prototype.anyPass = function (testFunction) {
-        errorIfNotFunction_1.errorIfNotFunction(testFunction);
+        error_if_not_function_1.errorIfNotFunction(testFunction);
         return this.data.some(testFunction);
     };
     PublicArrayContent.prototype.indexesThatPass = function (testFunction) {

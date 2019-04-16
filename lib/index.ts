@@ -2,11 +2,12 @@ import { append, prepend } from '@writetome51/array-append-prepend';
 import { arrayHas, arrayHasAll, arrayHasAny, arrayHasAdjacent } from '@writetome51/array-has';
 import { arraysMatch } from '@writetome51/arrays-match';
 import { arrayStartsWith, arrayEndsWith } from '@writetome51/array-starts-with-ends-with';
-import { errorIfNotFunction } from 'basic-data-handling/errorIfNotFunction';
+import { errorIfNotFunction } from 'error-if-not-function';
+import { errorIfNotIntegerZeroOrGreater } from 'error-if-not-integer-zero-or-greater';
 import { getCopy } from '@writetome51/array-get-copy';
 import { getFirstIndexOf, getLastIndexOf, getIndexesOf, getIndexesThatPass }
 	from '@writetome51/array-get-indexes';
-import { isEmpty, notEmpty } from 'basic-data-handling/isEmpty_notEmpty';
+import { isEmpty, notEmpty } from '@writetome51/is-empty-not-empty';
 import { moveByIndex } from '@writetome51/array-move-by-index';
 import { PublicArrayContainer } from '@writetome51/public-array-container';
 import { setArray } from '@writetome51/set-array';
@@ -26,6 +27,7 @@ export class PublicArrayContent extends PublicArrayContainer {
 
 
 	set length(value) {
+		errorIfNotIntegerZeroOrGreater(value);
 		this.data.length = value;
 	}
 
@@ -74,6 +76,8 @@ export class PublicArrayContent extends PublicArrayContainer {
 
 
 	forEach(iterationFunction: (currentValue, currentIndex?, entireArray?) => any): void {
+		errorIfNotFunction(iterationFunction);
+
 		for (let i = 0; i < this.data.length; ++i) {
 			iterationFunction(this.data[i], i, this.data);
 		}
