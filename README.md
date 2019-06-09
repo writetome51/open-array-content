@@ -4,17 +4,20 @@ An array-manipulating Typescript/Javascript class with properties and methods
 that give info about what is in the array, and can make basic changes to the array.
 
 ## Constructor
-```
-constructor(data? = []) // 'data' becomes the array it contains.
+```ts
+constructor(data? = []) //  'data' is assigned to this.data .
 ```
 
 You can reset the array by accessing the class `.data` property:
-```
+```ts
 this.data = [1,2,3,4];
 ```  
 
 ## Properties
-```
+<details>
+<summary>view properties</summary>
+
+```ts
 data : any[]  // the actual array
 	
 length : number // length of this.data
@@ -29,13 +32,14 @@ copy : this (read-only)
 
 className : string (read-only)
 ```
+</details>
+
 
 ## Methods
 <details>
 <summary>view methods</summary>
 
-
-```
+```ts
 set(newArray): void
     // Changes value of this.data to newArray without breaking its memory reference.
     // So if there are copies of this.data, the copies will be updated as well.
@@ -60,7 +64,7 @@ asString(glue = ', '): string
 NOTICE:  For all the methods below, any parameter called `value` cannot be an object,   
 and any parameter called `values` cannot contain an object.   
 This does not include arrays. Arrays are OK, as long as they don't contain objects.
-```
+```ts
 has(value): boolean
     // returns true if this.data contains `value`.
 
@@ -102,7 +106,7 @@ For the next 3 methods:
 `testFunction(item, index?, theArray?): boolean`  
 If `item` passes a test, `testFunction` returns true.
 
-```
+```ts
 allPass(testFunction): boolean
     // returns true if all items pass test.
 
@@ -114,7 +118,7 @@ indexesThatPass(testFunction): number[]
 ``` 
 The methods below are not important to know about in order to use this  
 class.  They're inherited from [BaseClass](https://github.com/writetome51/typescript-base-class#baseclass) .
-``` 
+```ts
 protected   _createGetterAndOrSetterForEach(
                   propertyNames: string[],
                   configuration: IGetterSetterConfiguration
@@ -146,12 +150,12 @@ protected   _returnThis_after(voidExpression: any) : this
     // voidExpression is executed, then function returns this.
     // Even if voidExpression returns something, the returned data isn't used.
 
-protected   _runMethod_and_returnThis(
-    callingObject, 
-    method: Function, 
-    methodArgs: any[], 
-    additionalAction?: Function // takes the result returned by method as an argument.
-) : this
+protected   _errorIfPropertyHasNoValue(
+                property: string, // can contain dot-notation, i.e., 'property.subproperty'
+                propertyNameInError? = ''
+            ) : void
+    // If value of this[property] is undefined or null, it triggers fatal error:
+    // `The property "${propertyNameInError}" has no value.`
 ```
 </details>
 
@@ -164,10 +168,10 @@ PublicArrayContent<--[PublicArrayContainer](https://github.com/writetome51/publi
 
 You must have npm installed first. Then, in the command line:
 
-    npm install @writetome51/public-array-content
+`npm i  @writetome51/public-array-content`
 
 ## Loading
-```
+```ts
 // if using TypeScript:
 import { PublicArrayContent } from '@writetome51/public-array-content';
 // if using ES5 JavaScript:

@@ -27,9 +27,8 @@ var public_array_container_1 = require("@writetome51/public-array-container");
 var set_array_1 = require("@writetome51/set-array");
 var PublicArrayContent = /** @class */ (function (_super) {
     __extends(PublicArrayContent, _super);
-    function PublicArrayContent(data) {
-        if (data === void 0) { data = []; }
-        return _super.call(this, data) || this;
+    function PublicArrayContent() {
+        return _super !== null && _super.apply(this, arguments) || this;
     }
     Object.defineProperty(PublicArrayContent.prototype, "length", {
         get: function () {

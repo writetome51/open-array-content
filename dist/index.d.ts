@@ -3,30 +3,25 @@ import { PublicArrayContainer } from '@writetome51/public-array-container';
 
 export declare class PublicArrayContent extends PublicArrayContainer {
 
-	constructor(data?: any[]);
-
-
 	length: number;
 	readonly isEmpty: boolean;
 	readonly notEmpty: boolean;
-	readonly copy: this; // an independent copy of this instance.
+	readonly copy: this;
 
 
-	set(newArray: any[]): void
+	set(newArray: any[]): void;
 
 
-	append(values: any[]): this
+	append(values: any[]): this;
 
 
-	prepend(values: any[]): this
+	prepend(values: any[]): this;
 
 
-	moveByIndex(currentIndex: number, newIndex: number): this
+	moveByIndex(currentIndex: number, newIndex: number): this;
 
 
-	forEach(
-		iterationFunction: (currentValue: any, currentIndex?: number, entireArray?: any[]) => any
-	): void
+	forEach(iterationFunction: (currentValue: any, currentIndex?: number, entireArray?: any[]) => any): void;
 
 
 	asString(glue?: string): string;
@@ -69,6 +64,4 @@ export declare class PublicArrayContent extends PublicArrayContainer {
 
 
 	indexesThatPass(testFunction: (item: any, index?: number, array?: any[]) => boolean): number[];
-
-
 }

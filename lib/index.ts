@@ -16,11 +16,6 @@ import { setArray } from '@writetome51/set-array';
 export class PublicArrayContent extends PublicArrayContainer {
 
 
-	constructor(data = []) {
-		super(data);
-	}
-
-
 	get length(): number {
 		return this.data.length;
 	}
@@ -55,7 +50,7 @@ export class PublicArrayContent extends PublicArrayContainer {
 
 	// Changes the value of this.data without breaking its memory reference.
 
-	set(newArray): void {
+	set(newArray: any[]): void {
 		setArray(this.data, newArray);
 	}
 
